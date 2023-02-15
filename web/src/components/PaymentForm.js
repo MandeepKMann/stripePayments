@@ -71,8 +71,9 @@ const PaymentForm = () => {
             <button>Pay</button>
         </form>
         :
-       <div>
+       <div className='purchaseComplete'>
            <h2>You've just bought a Pingu!</h2>
+           <img src="https://media1.giphy.com/media/TVPJNp47j5EA0/giphy.gif?cid=ecf05e473prd2ch5711twba2j4wzyqoy4sbs2uyjmd2zzmmx&rid=giphy.gif&ct=g" alt='gif of Pingu dancing'></img>
        </div> 
         }
             
