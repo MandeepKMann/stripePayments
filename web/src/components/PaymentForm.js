@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
+import Swal from "sweetalert2";
 
 
 const CARD_OPTIONS = {
@@ -28,6 +29,37 @@ const PaymentForm = () => {
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
+    
+    const errorAlert = (error) => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+
+        Toast.fire({
+            icon: 'error',
+            title: `${error}`
+        })
+    } 
+
+    const handleClick = async (e) => {
+        e.preventDefault()
+        const {error, paymentMethod} = await stripe.createPaymentMethod({
+            type: "card",
+            card: elements.getElement(CardElement)
+        })
+
+        if (!error) {
+            console.log("Successful payment")
+            setSuccess(true)
+        } else if (error) {
+            errorAlert(error.message)
+        } else {
+            return
+        }
+    }
 
 
     const handleSubmit = async (e) => {
@@ -62,7 +94,7 @@ const PaymentForm = () => {
     return (
         <>
         {!success ? 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleClick}>
             <fieldset className="formGroup">
                 <div className="formRow">
                     <CardElement options={CARD_OPTIONS}/>

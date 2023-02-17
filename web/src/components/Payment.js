@@ -35,7 +35,7 @@ const Payment = () => {
 
             <p>The expiry date can only be a current or future date and the CVC and ZIP/Postal code can be anything as long as it follows the correct formats.</p>
             <StripeContainer /> 
-            <Link to='/' className='button'>Cancel</Link> 
+            <Link to='/' className='button'>Go Back</Link> 
         </div>
         
     )
