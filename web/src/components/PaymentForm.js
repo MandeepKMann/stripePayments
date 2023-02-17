@@ -41,7 +41,7 @@ const PaymentForm = () => {
     if(!error) {
         try {
             const {id} = paymentMethod
-            const response = await axios.post("http://localhost:4000/payment", {
+            const response = await axios.post("https://stripe-server-50z2.onrender.com/", {
                 amount: 1000,
                 id
             })
