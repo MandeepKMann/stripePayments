@@ -10,7 +10,7 @@ const CARD_OPTIONS = {
 		base: {
 			iconColor: "#ebf4ff",
 			color: "#fff",
-			fontWeight: 500,
+			fontWeight: 700,
 			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
 			fontSize: "16px",
 			fontSmoothing: "antialiased",
@@ -88,13 +88,14 @@ const PaymentForm = () => {
         }
     } else {
         console.log(error.message)
+        errorAlert(error.message)
     }
 }
 
     return (
         <>
         {!success ? 
-        <form onSubmit={handleClick}>
+        <form onSubmit={handleClick} className='stripeForm'>
             <fieldset className="formGroup">
                 <div className="formRow">
                     <CardElement options={CARD_OPTIONS}/>

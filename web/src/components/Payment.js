@@ -23,20 +23,24 @@ const Payment = () => {
     } 
 
     return (
-        <div className="paymentForm">
-            <p>This is a fake storefront so don't put your actual credit card information unless you want me to have it 👀. I suggest you use Stripe's test credit card info.</p>
+        <section className="paymentForm">
+            <div className="form">
+                <div className="wrapper formFlex">
+                    <p>This is a fake storefront so don't put your actual credit card information unless you want me to have it 👀. I suggest you use Stripe's test credit card info.</p>
 
-            <CopyToClipboard
-                text='4242 4242 4242 4242'
-                onCopy={copyAlert}
-                >
-                <p className='copyButton'>4242 4242 4242 4242 <FontAwesomeIcon icon={faCopy} /></p>
-            </CopyToClipboard>
+                    <CopyToClipboard
+                        text='4242 4242 4242 4242'
+                        onCopy={copyAlert}
+                        >
+                        <p className='copyButton'>4242 4242 4242 4242 <FontAwesomeIcon icon={faCopy} /></p>
+                    </CopyToClipboard>
 
-            <p>The expiry date can only be a current or future date and the CVC and ZIP/Postal code can be anything as long as it follows the correct formats.</p>
-            <StripeContainer /> 
-            <Link to='/' className='button'>Go Back</Link> 
-        </div>
+                    <p>The expiry date can only be a current or future date and the CVC and ZIP/Postal code can be anything as long as it follows the correct formats.</p>
+                    <StripeContainer /> 
+                    <Link to='/' className='button'>Go Back</Link> 
+                </div>
+            </div>
+        </section>
         
     )
 };
